@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import styles from "./App.module.css"
 
 function App() {
     const [coins, setCoins] = useState([]);
@@ -15,22 +16,19 @@ function App() {
     },[]);
 
     return(
-        <>
-            <div style={{ padding:"20px"}}>
-                <h1>업비트 코인 목록 ({coins.length}개)</h1>
-                <he />
-                <select style={{ padding: "8px", fontSize: 16, minWidth: "200px" }}>
-                    {coins.map((item, index) => {
-                        return (
-                            <option key={index} value={item.market}>
-                                {item.korean_name}({item.market})
-                            </option>
-                        );
-                    })}
-                </select>
-            </div>
-
-        </>
+        <div className={styles.container}>
+            <h1>업비트 코인 목록 ({coins.length}개)</h1>
+            <he />
+            <select style={{ padding: "8px", fontSize: 16, minWidth: "200px" }}>
+                {coins.map((item, index) => {
+                    return (
+                        <option key={index} value={item.market}>
+                            {item.korean_name}({item.market})
+                        </option>
+                    );
+                })}
+            </select>
+        </div>
     )
 }
 export default App;
